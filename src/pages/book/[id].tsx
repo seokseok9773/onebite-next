@@ -1,6 +1,7 @@
 import fetchOneBooks from "@/lib/fetch-one-books";
 import style from "@/pages/book/[id].module.css";
 import { GetServerSidePropsContext, InferGetServerSidePropsType } from "next";
+import Image from "next/image";
 
 export const getServerSideProps = async (
   context: GetServerSidePropsContext
@@ -25,7 +26,13 @@ export default function Page({
         className={style.cover_img_container}
         style={{ backgroundImage: `url('${coverImgUrl})` }}
       >
-        <img src={coverImgUrl} />
+        {/* <img src={coverImgUrl} /> */}
+        <Image
+          src={coverImgUrl}
+          alt={"사진이 없습니다."}
+          width={250}
+          height={350}
+        />
       </div>
       <div className={style.title}>{title}</div>
       <div className={style.subTitle}>{subTitle}</div>
